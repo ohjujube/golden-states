@@ -14,7 +14,7 @@ erb :index
 end
 
 get "/about" do
-"Your Account Details"
+erb :about
 end
 
 get "/share" do
