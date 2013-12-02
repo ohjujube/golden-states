@@ -4,12 +4,18 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
 
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+end
+
 get "/" do
 erb :index
 end
 
 get "/about" do
-erb :about
+ code = "<%= Time.now %>"
+ erb code
 end
 
 get "/share" do
