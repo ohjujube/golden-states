@@ -17,6 +17,7 @@ erb :"share"
 end
 
 get '/story' do
+‘Welcome from RubyLearning!’
 erb :"story"
 end
 
