@@ -5,20 +5,19 @@ require 'sinatra/activerecord'
 require './environments'
 
 get "/" do
-erb :"index"
+erb :index
 end
 
 get "/about" do
-erb :"about"
+erb :about
 end
 
 get "/share" do
-erb :"share"
+erb :share
 end
 
 get '/story' do
-‘Welcome from RubyLearning!’
-erb :"story"
+erb :story
 end
 
 
