@@ -14,8 +14,7 @@ erb :index
 end
 
 get "/about" do
- code = "<%= Time.now %>"
- erb code
+"Your Account Details"
 end
 
 get "/share" do
