@@ -25,6 +25,15 @@ get '/story' do
 erb :story
 end
 
+  get '/set_cookie/?' do
+    response.set_cookie 'foo', 'bar'
+    erb "cookie set"
+  end
+
+  get '/get_cookie/?' do
+    erb request.cookies['foo']
+  end
+
 
 
 
