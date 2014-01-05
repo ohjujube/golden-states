@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
+require "sinatra/cookies"
 
 helpers do
   include Rack::Utils
@@ -21,17 +22,18 @@ get "/share" do
 erb :share
 end
 
-get '/story' do
-erb :story
-end
-
-  get '/set_cookie/?' do
-    response.set_cookie 'foo', 'bar'
-    erb "cookie set"
+  get '/story' do
+    #response.set_cookie 'page',
+    #  {:value=> params[:splat], :max_age => "2592000"}
+    erb :story
   end
 
-  get '/get_cookie/?' do
-    erb request.cookies['foo']
+# get '/story' do
+# erb :story
+# end
+
+  get '/current' do
+    redirect to request.cookies['page'] #("/story#" + request.cookies['page'])
   end
 
 

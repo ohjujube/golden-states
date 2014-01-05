@@ -17,10 +17,12 @@ font-family: courier; }
   }
 .container {padding-bottom:75px;
   .footer {
+    webkit-transform:translate(0,0);
+    z-index: -9999; /* up up and above */
     width: 100%;
     height: 70px;
     background-color: white;
-    position: fixed;
+    position: relative;
     bottom: 0;
     .footerz a:link, .footerz a:active, .footerz a:visited
  {color:c4c2c7;
@@ -33,6 +35,15 @@ text-decoration:none;}
 
     <%= yield %>
 
+  <footer class="footer">
+    <font color="c4c2c7" face="courier" size="2">
+<center>
+<span class="footerz">
+<a href="/about">about</a> | <a href="/share">share</a> | <a href="/">home</a> | <a href="/current">go to current place in story</a>
+<br><br>
+<i>golden states</i><br>(c)2013 sarah baker & hannah skibbe
+</span>
+</body>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -44,15 +55,14 @@ text-decoration:none;}
             $(this).remove();
         });
     }, 4000);
+
+    $(document).ready(function() {
+      $(".container a").click(function() { 
+        //z = this.href;
+        //alert(z); 
+        document.cookie = "page=" +this.href;
+      });
+    });
     </script>
-  </body>
-  <footer class="footer">
-    <font color="c4c2c7" face="courier" size="2">
-<center>
-<span class="footerz">
-<a href="/about">about</a> | <a href="/share">share</a> | <a href="/">home</a>
-<br><br>
-<i>golden states</i><br>(c)2013 sarah baker & hannah skibbe
-</span>
-</div>
+
 </html>
