@@ -1,5 +1,7 @@
 # app.rb
 
+# blah blah blah 
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
